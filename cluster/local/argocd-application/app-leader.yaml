@@ -3,7 +3,7 @@ kind: Application
 metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
-  name: local-cluster
+  name: app-leader
   namespace: argocd
 spec:
   destination:
@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: cluster/local/argocd-application
+    path: argocd-applications/overlays/dev
     repoURL: https://github.com/oyas/web-app-infra
     targetRevision: HEAD
   syncPolicy:

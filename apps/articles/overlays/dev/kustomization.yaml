@@ -1,0 +1,5 @@
+resources:
+- ../../base
+images:
+- name: oyas/web-app-articles
+  newTag: latest

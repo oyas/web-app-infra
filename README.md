@@ -1,11 +1,11 @@
 web-app-infra
------
+=====
 
 Kubernetes manifests of [web-app](https://github.com/oyas/web-app).
 
-# Setup
+## Setup
 
-## local cluster
+### Create local cluster
 
 ```
 bash cluster/local/setup.sh
