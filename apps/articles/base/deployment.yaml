@@ -10,7 +10,7 @@ spec:
   template:
     metadata:
       labels:
-        app: service-echo
+        app: application
     spec:
       containers:
       - name: application
