@@ -8,6 +8,6 @@ Kubernetes manifests of [web-app](https://github.com/oyas/web-app).
 ## local cluster
 
 ```
-bash setup/local/setup.sh
+bash cluster/local/setup.sh
 ```
 

@@ -20,10 +20,10 @@ bash setup.sh --cleanup
 ## How to access to ArgoCD web ui
 
 ```
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+kubectl port-forward svc/argocd-server -n argocd 28080:443
 ```
 
-access to https://localhost:8080/
+access to https://localhost:28080/
 
 https://argoproj.github.io/argo-cd/getting_started/
 
