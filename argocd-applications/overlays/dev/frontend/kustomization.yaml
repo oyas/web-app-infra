@@ -1,0 +1,5 @@
+resources:
+- ../../../base
+nameSuffix: -dev-frontend
+patchesStrategicMerge:
+- application.yaml
