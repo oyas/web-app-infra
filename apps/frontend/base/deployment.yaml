@@ -19,6 +19,6 @@ spec:
         - containerPort: 8000
         env:
         - name: API_URL_BFF
-          value: "http://bff:4000"
+          value: "http://localhost:4000"
         - name: API_URL_BFF_RUNTIME
           value: ""
