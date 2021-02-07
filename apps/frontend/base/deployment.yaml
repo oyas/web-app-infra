@@ -17,3 +17,8 @@ spec:
         image: oyas/web-app-frontend
         ports:
         - containerPort: 8000
+        env:
+        - name: API_URL_BFF
+          value: "http://bff:4000"
+        - name: API_URL_BFF_RUNTIME
+          value: ""
