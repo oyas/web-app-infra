@@ -17,3 +17,6 @@ spec:
         image: oyas/web-app-bff
         ports:
         - containerPort: 4000
+        env:
+        - name: API_URL_ARTICLES
+          value: "http://application.app-dev-articles.svc.cluster.local:50052"
