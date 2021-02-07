@@ -22,3 +22,7 @@ spec:
           value: "http://application.app-dev-bff.svc.cluster.local:4000"
         - name: API_URL_BFF_RUNTIME
           value: ""
+      dnsConfig:
+        options:
+        - name: ndots
+          value: "1"

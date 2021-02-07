@@ -20,3 +20,7 @@ spec:
         env:
         - name: API_URL_ARTICLES
           value: "http://application.app-dev-articles.svc.cluster.local:50052"
+      dnsConfig:
+        options:
+        - name: ndots
+          value: "1"
