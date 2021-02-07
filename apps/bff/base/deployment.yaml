@@ -14,11 +14,6 @@ spec:
     spec:
       containers:
       - name: application
-        image: oyas/web-app-frontend
+        image: oyas/web-app-bff
         ports:
-        - containerPort: 8000
-        env:
-        - name: API_URL_BFF
-          value: "http://application.app-dev-bff.svc.cluster.local:4000"
-        - name: API_URL_BFF_RUNTIME
-          value: ""
+        - containerPort: 4000
