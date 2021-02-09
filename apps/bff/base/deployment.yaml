@@ -19,8 +19,4 @@ spec:
         - containerPort: 4000
         env:
         - name: API_URL_ARTICLES
-          value: "http://application.app-dev-articles.svc.cluster.local:50052"
-      dnsConfig:
-        options:
-        - name: ndots
-          value: "1"
+          value: "application.app-dev-articles.svc.cluster.local:50052"
