@@ -16,9 +16,9 @@ spec:
     targetRevision: HEAD
     helm:
       version: v3
-      values: |
-        global:
-          name: consul
+      parameters:
+      - name: "global.name"
+        value: "consul"
   syncPolicy:
     automated:
       prune: true
