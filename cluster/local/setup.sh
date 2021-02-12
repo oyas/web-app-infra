@@ -25,17 +25,18 @@ fi
 
 # Cleanup
 if [[ $1 == '--cleanup' ]]; then
-	kind delete cluster
+	kind delete cluster --name web-app
 	exit
 fi
 
 # Create cluster
-kind create cluster --config kind-config.yaml
+kind create cluster --name web-app --config kind-config.yaml
 
 # Install Argo CD
 kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 # Add Argo CD application
+kubectl create namespace ingress-nginx
 kubectl apply -n argocd -f ./application.yaml
 
