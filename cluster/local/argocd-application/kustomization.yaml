@@ -1,3 +1,4 @@
 resources:
 - ingress-nginx.yaml
 - apps.yaml
+- consul.yaml
