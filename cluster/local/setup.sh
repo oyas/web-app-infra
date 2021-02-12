@@ -37,6 +37,5 @@ kubectl create namespace argocd
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
 # Add Argo CD application
-kubectl create namespace ingress-nginx
 kubectl apply -n argocd -f ./application.yaml
 
