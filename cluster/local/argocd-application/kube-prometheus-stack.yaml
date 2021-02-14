@@ -16,6 +16,13 @@ spec:
     targetRevision: main
     helm:
       version: v3
+      parameters:
+      - name: "kubeStateMetrics.enabled"
+        value: false
+      - name: "nodeExporter.enabled"
+        value: false
+      - name: "grafana.enabled"
+        value: false
   syncPolicy:
     automated:
       prune: true
