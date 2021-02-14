@@ -27,3 +27,11 @@ access to https://localhost:28080/
 
 https://argoproj.github.io/argo-cd/getting_started/
 
+## How to access to Consul web ui
+
+```
+kubectl port-forward -n consul service/consul-server 8500:8500
+```
+
+access to https://localhost:8500/
+
