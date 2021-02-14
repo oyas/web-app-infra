@@ -11,9 +11,11 @@ spec:
     namespace: prometheus-operator
   project: default
   source:
-    repoURL: https://github.com/prometheus-operator/prometheus-operator
-    path: .
+    repoURL: https://github.com/prometheus-community/helm-charts
+    path: helm-charts/charts/kube-prometheus-stack
     targetRevision: HEAD
+    helm:
+      version: v3
   syncPolicy:
     automated:
       prune: true
