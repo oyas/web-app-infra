@@ -3,17 +3,17 @@ kind: Application
 metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
-  name: prometheus-operator
+  name: kube-prometheus-stack
   namespace: argocd
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: prometheus-operator
+    namespace: kube-prometheus-stack
   project: default
   source:
     repoURL: https://github.com/prometheus-community/helm-charts
-    path: helm-charts/charts/kube-prometheus-stack
-    targetRevision: HEAD
+    path: charts/kube-prometheus-stack
+    targetRevision: main
     helm:
       version: v3
   syncPolicy:
