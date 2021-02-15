@@ -3,3 +3,4 @@ resources:
 - apps.yaml
 - consul.yaml
 - prometheus.yaml
+- grafana.yaml
