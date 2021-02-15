@@ -2,4 +2,4 @@ resources:
 - ingress-nginx.yaml
 - apps.yaml
 - consul.yaml
-- kube-prometheus-stack.yaml
+- prometheus.yaml
