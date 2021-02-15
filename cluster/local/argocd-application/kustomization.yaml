@@ -2,6 +2,6 @@ resources:
 - ingress-nginx.yaml
 - apps.yaml
 - consul.yaml
-# - prometheus.yaml
-# - grafana.yaml
-- loki-stack.yaml
+- prometheus.yaml
+- grafana.yaml
+- loki.yaml

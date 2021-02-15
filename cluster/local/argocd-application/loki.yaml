@@ -3,24 +3,19 @@ kind: Application
 metadata:
   finalizers:
   - resources-finalizer.argocd.argoproj.io
-  name: loki-stack
+  name: loki
   namespace: argocd
 spec:
   destination:
     server: https://kubernetes.default.svc
-    namespace: loki-stack
+    namespace: loki
   project: default
   source:
     repoURL: https://github.com/grafana/helm-charts
-    path: charts/loki-stack
+    path: charts/loki
     targetRevision: main
     helm:
       version: v3
-      parameters:
-      - name: "grafana.enabled"
-        value: "true"
-      - name: "prometheus.enabled"
-        value: "true"
   syncPolicy:
     automated:
       prune: true
