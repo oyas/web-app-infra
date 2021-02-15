@@ -16,6 +16,11 @@ spec:
     targetRevision: main
     helm:
       version: v3
+      parameters:
+      - name: "grafana.enabled"
+        value: "true"
+      - name: "prometheus.enabled"
+        value: "true"
   syncPolicy:
     automated:
       prune: true
