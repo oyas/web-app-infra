@@ -19,9 +19,9 @@ After creating, you can access to http://localhost:8080/
 bash cluster/local/port-forward.sh
 ```
 
-- [Argo CD](http://localhost:20000/)
+- [Argo CD](http://localhost:20000/) ( username: `admin` / password: `admin` )
 - [Consul](http://localhost:20001/)
-- [Grafana](http://localhost:20002/)
+- [Grafana](http://localhost:20002/) ( username: `admin` / password: `admin` )
 - [Alertmanager](http://localhost:20003/)
 - [Prometheus](http://localhost:20004/)
 

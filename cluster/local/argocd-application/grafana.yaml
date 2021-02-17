@@ -16,6 +16,8 @@ spec:
     targetRevision: main
     helm:
       version: v3
+      values: |
+        adminPassword: admin
   syncPolicy:
     automated:
       prune: true
