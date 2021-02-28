@@ -13,7 +13,7 @@ function waitfor(){
 	namespace=$2
 
 	echo "Waiting to $name ready..."
-	kubectl get pods -A | sed -n '1p'
+	kubectl get pods -l app.kubernetes.io/name=$name -n $namespace 2>/dev/null | sed -n '1p'
 	for i in {1..600}; do
 		stat=`kubectl get pods -l app.kubernetes.io/name=$name -n $namespace 2>/dev/null | sed -n '2p' | tr -d '\n'`
 		echo -en "\r$stat"
