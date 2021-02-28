@@ -15,7 +15,7 @@ spec:
         'consul.hashicorp.com/connect-inject': 'true'
     spec:
       containers:
-      - name: application
+      - name: articles
         image: oyas/web-app-articles
         ports:
         - containerPort: 50052
