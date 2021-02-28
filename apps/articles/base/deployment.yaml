@@ -6,11 +6,11 @@ spec:
   replicas: 1
   selector:
     matchLabels:
-      app: application
+      app: articles
   template:
     metadata:
       labels:
-        app: application
+        app: articles
       annotations:
         'consul.hashicorp.com/connect-inject': 'true'
     spec:
