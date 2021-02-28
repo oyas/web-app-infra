@@ -16,9 +16,13 @@ spec:
     targetRevision: HEAD
     helm:
       version: v3
-      parameters:
-      - name: "global.name"
-        value: "consul"
+      values: |
+        global:
+          name: "consul"
+        connectInject:
+          enabled: true
+        controller:
+          enabled: true
   syncPolicy:
     automated:
       prune: true

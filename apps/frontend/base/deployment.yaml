@@ -11,6 +11,8 @@ spec:
     metadata:
       labels:
         app: application
+      annotations:
+        'consul.hashicorp.com/connect-inject': 'true'
     spec:
       containers:
       - name: application
