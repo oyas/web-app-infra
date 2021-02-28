@@ -35,3 +35,13 @@ kubectl port-forward -n consul service/consul-server 8500:8500
 
 access to https://localhost:8500/
 
+## Pod errors due to “too many open files”
+
+https://kind.sigs.k8s.io/docs/user/known-issues/#pod-errors-due-to-too-many-open-files
+
+If you use ubuntu, execute following commands.
+
+```
+sudo sysctl fs.inotify.max_user_watches=524288
+sudo sysctl fs.inotify.max_user_instances=512
+```
