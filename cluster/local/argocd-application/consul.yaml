@@ -19,6 +19,12 @@ spec:
       values: |
         global:
           name: "consul"
+        server:
+          replicas: 3
+          extraConfig: |
+            {
+              "disable_host_node_id": true
+            }
         connectInject:
           enabled: true
         controller:
