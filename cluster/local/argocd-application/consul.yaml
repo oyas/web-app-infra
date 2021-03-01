@@ -20,7 +20,7 @@ spec:
         global:
           name: "consul"
         server:
-          replicas: 1
+          replicas: 2
           extraConfig: |
             {
               "log_level": "DEBUG",
@@ -28,6 +28,7 @@ spec:
             }
         client:
           enabled: true
+          grpc: true
           extraConfig: |
             {
               "disable_host_node_id": false
@@ -35,6 +36,8 @@ spec:
         connectInject:
           enabled: true
         controller:
+          enabled: true
+        syncCatalog:
           enabled: true
   syncPolicy:
     automated:
