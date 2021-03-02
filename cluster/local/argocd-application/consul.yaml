@@ -37,8 +37,6 @@ spec:
           enabled: true
         controller:
           enabled: true
-        syncCatalog:
-          enabled: true
   syncPolicy:
     automated:
       prune: true
