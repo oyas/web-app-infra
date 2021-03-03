@@ -13,6 +13,8 @@ spec:
         app: application
       annotations:
         'consul.hashicorp.com/connect-inject': 'true'
+        'consul.hashicorp.com/connect-service': 'bff'
+        'consul.hashicorp.com/connect-service-upstreams': 'articles:50000'
     spec:
       containers:
       - name: application
@@ -21,4 +23,4 @@ spec:
         - containerPort: 4000
         env:
         - name: API_URL_ARTICLES
-          value: "application.app-dev-articles.svc.cluster.local:50052"
+          value: "localhost:50000"

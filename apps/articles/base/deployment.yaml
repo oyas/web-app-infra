@@ -13,6 +13,7 @@ spec:
         app: articles
       annotations:
         'consul.hashicorp.com/connect-inject': 'true'
+        'consul.hashicorp.com/connect-service': 'articles'
     spec:
       containers:
       - name: articles

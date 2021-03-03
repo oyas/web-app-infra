@@ -13,6 +13,8 @@ spec:
         app: application
       annotations:
         'consul.hashicorp.com/connect-inject': 'true'
+        'consul.hashicorp.com/connect-service': 'frontend'
+        'consul.hashicorp.com/connect-service-upstreams': 'bff:4000'
     spec:
       containers:
       - name: application
@@ -21,6 +23,6 @@ spec:
         - containerPort: 8000
         env:
         - name: API_URL_BFF
-          value: "http://application.app-dev-bff.svc.cluster.local:4000"
+          value: "http://localhost:4000"
         - name: API_URL_BFF_RUNTIME
           value: ""
