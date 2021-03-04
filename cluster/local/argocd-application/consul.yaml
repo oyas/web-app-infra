@@ -19,20 +19,12 @@ spec:
       values: |
         global:
           name: "consul"
+          datacenter: dev
         server:
-          replicas: 2
-          extraConfig: |
-            {
-              "log_level": "DEBUG",
-              "disable_host_node_id": true
-            }
+          replicas: 1
         client:
           enabled: true
           grpc: true
-          extraConfig: |
-            {
-              "disable_host_node_id": true
-            }
         connectInject:
           enabled: true
         controller:
