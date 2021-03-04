@@ -5,6 +5,8 @@ metadata:
   - resources-finalizer.argocd.argoproj.io
   name: apps
   namespace: argocd
+  annotations:
+    argocd.argoproj.io/sync-wave: "5"
 spec:
   destination:
     namespace: default
