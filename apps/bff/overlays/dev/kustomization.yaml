@@ -1,5 +1,5 @@
 resources:
 - ../../base
 images:
-- name: oyas/web-app-bff:c1f91d27ea2842f893e0e78b3c9c06e989058895
+- name: oyas/web-app-bff:c1f91d27ea2842f893e0e78b3c9c06e989058895x
   newTag: latest
