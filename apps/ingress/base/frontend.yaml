@@ -5,3 +5,7 @@ metadata:
 spec:
   type: ExternalName
   externalName: application.app-staging-frontend.svc.cluster.local
+  ports:
+  - protocol: TCP
+    port: 8080
+    targetPort: 8080
