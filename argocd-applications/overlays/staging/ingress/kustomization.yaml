@@ -1,0 +1,5 @@
+resources:
+- ../../../base
+nameSuffix: -staging-ingress
+patchesStrategicMerge:
+- application.yaml

@@ -2,3 +2,4 @@ resources:
 - articles
 - frontend
 - bff
+- ingress
