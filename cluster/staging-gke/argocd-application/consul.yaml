@@ -13,7 +13,7 @@ spec:
   source:
     repoURL: https://github.com/hashicorp/consul-helm
     path: .
-    targetRevision: v0.29.0
+    targetRevision: v0.31.1
     helm:
       version: v3
       values: |
