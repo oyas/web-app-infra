@@ -1,0 +1,37 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+  name: consul
+  namespace: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: consul
+  project: default
+  source:
+    repoURL: https://github.com/hashicorp/consul-helm
+    path: .
+    targetRevision: v0.29.0
+    helm:
+      version: v3
+      values: |
+        global:
+          name: "consul"
+          datacenter: staging-gke
+        server:
+          replicas: 1
+        client:
+          enabled: true
+          grpc: true
+        connectInject:
+          enabled: true
+        controller:
+          enabled: true
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true

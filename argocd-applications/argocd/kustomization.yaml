@@ -1,0 +1,2 @@
+bases:
+- github.com/argoproj/argo-cd/manifests/cluster-install?ref=stable

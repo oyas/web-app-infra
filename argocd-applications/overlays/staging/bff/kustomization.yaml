@@ -1,0 +1,5 @@
+resources:
+- ../../../base
+nameSuffix: -staging-bff
+patchesStrategicMerge:
+- application.yaml
