@@ -6,6 +6,4 @@ spec:
   type: ExternalName
   externalName: application.app-staging-bff.svc.cluster.local
   ports:
-  - protocol: TCP
-    port: 4000
-    targetPort: 4000
+  - port: 4000
