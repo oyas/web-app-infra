@@ -11,6 +11,7 @@ spec:
           serviceName: bff
           servicePort: 4000
       - path: /
+        pathType: Prefix
         backend:
           serviceName: frontend
           servicePort: 8080
