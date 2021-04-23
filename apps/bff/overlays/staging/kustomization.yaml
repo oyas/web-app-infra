@@ -1,7 +1,5 @@
 resources:
 - ../../base
-patchesStrategicMerge:
-- ingress.yaml
 images:
 - name: oyas/web-app-bff
   newTag: latest

@@ -1,5 +1,6 @@
 resources:
 - ../../base
+- ingress.yaml
 images:
 - name: oyas/web-app-frontend
   newTag: 69c71cb27ce90a17c1e02487e6eda0e21aa88a01
