@@ -1,2 +1,5 @@
 resources:
 - ../../base
+patchesStrategicMerge:
+- frontend.yaml
+- bff.yaml
