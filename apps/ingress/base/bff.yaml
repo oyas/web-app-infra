@@ -4,6 +4,6 @@ metadata:
   name: bff
 spec:
   type: ExternalName
-  externalName: application.app-staging-bff.svc.cluster.local
+  externalName: application.app-dev-bff.svc.cluster.local
   ports:
   - port: 4000

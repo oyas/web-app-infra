@@ -10,7 +10,8 @@ spec:
         backend:
           serviceName: bff
           servicePort: 4000
-      - path: /*
+      - path: /
+        pathType: Prefix
         backend:
           serviceName: frontend
           servicePort: 8080
