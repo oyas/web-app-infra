@@ -29,15 +29,12 @@ spec:
           enabled: true
         controller:
           enabled: true
-        ingressGateways:
-          enabled: true
-          gateways:
-          - name: ingress-gateway
-            service:
-              type: ClusterIP
-          - name: service-gateway
-            service:
-              type: ClusterIP
+        # ingressGateways:
+        #   enabled: true
+        #   gateways:
+        #   - name: ingress-gateway
+        #     service:
+        #       type: ClusterIP
   syncPolicy:
     automated:
       prune: true
