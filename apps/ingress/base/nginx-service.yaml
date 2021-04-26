@@ -14,11 +14,11 @@ data:
     stream {
       server {
         listen     8080;
-        proxy_pass localhost:8080;
+        proxy_pass localhost:8081;
       }
       server {
         listen     4000;
-        proxy_pass localhost:4000;
+        proxy_pass localhost:4001;
       }
     }
 
@@ -38,7 +38,7 @@ spec:
         app: nginx
       annotations:
         'consul.hashicorp.com/connect-inject': 'true'
-        'consul.hashicorp.com/connect-service-upstreams': 'frontend:8080,bff:4000'
+        'consul.hashicorp.com/connect-service-upstreams': 'frontend:8081,bff:4001'
     spec:
       containers:
       - name: nginx
