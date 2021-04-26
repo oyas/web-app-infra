@@ -9,9 +9,9 @@ spec:
       - path: /graphql
         backend:
           serviceName: nginx-service
-          servicePort: 4000
+          servicePort: bff
       - path: /
         pathType: Prefix
         backend:
           serviceName: nginx-service
-          servicePort: 8080
+          servicePort: frontend

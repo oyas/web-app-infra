@@ -70,9 +70,11 @@ spec:
   selector:
     app: nginx
   ports:
-  - protocol: TCP
+  - name: frontend
+    protocol: TCP
     port: 8080
     targetPort: 8080
-  - protocol: TCP
+  - name: bff
+    protocol: TCP
     port: 4000
     targetPort: 4000
