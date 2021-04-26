@@ -13,6 +13,7 @@ spec:
         app: nginx
       annotations:
         'consul.hashicorp.com/connect-inject': 'true'
+        'consul.hashicorp.com/connect-service': 'ingress'
         'consul.hashicorp.com/connect-service-upstreams': 'frontend:8081,bff:4001'
     spec:
       containers:
