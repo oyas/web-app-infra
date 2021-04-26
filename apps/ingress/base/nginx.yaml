@@ -29,6 +29,16 @@ spec:
           mountPath: /etc/nginx/nginx.conf
           readOnly: true
           subPath: nginx.conf
+        readinessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 20
       volumes:
       - name: nginx-conf
         configMap:
