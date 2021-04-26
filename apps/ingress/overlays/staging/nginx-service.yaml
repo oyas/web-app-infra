@@ -3,4 +3,4 @@ kind: Service
 metadata:
   name: nginx-service
   annotations:
-    cloud.google.com/backend-config: '{"ports": {"4000":"backend-config-bff"}}'
+    cloud.google.com/backend-config: '{"ports": {"bff":"backend-config-bff"}}'
