@@ -4,3 +4,15 @@ metadata:
   name: application
   annotations:
     kubernetes.io/ingress.global-static-ip-name: web-app-staging-ip
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /graphql
+        backend:
+          serviceName: nginx-service
+          servicePort: bff
+      - path: /*
+        backend:
+          serviceName: nginx-service
+          servicePort: frontend
