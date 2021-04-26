@@ -1,4 +1,6 @@
 resources:
 - ingress.yaml
-- frontend.yaml
+# - frontend.yaml
+- ingress-gateway.yaml
+- service-default.yaml
 - bff.yaml
