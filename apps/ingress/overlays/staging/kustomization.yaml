@@ -1,4 +1,6 @@
 resources:
 - ../../base
+- backend-config-bff.yaml
 patchesStrategicMerge:
 - ingress.yaml
+- nginx-service.yaml

@@ -1,0 +1,10 @@
+apiVersion: cloud.google.com/v1
+kind: BackendConfig
+metadata:
+  name: backend-config-bff
+spec:
+  healthCheck:
+    checkIntervalSec: 15
+    port: 4000
+    type: HTTP
+    requestPath: /.well-known/apollo/server-health
