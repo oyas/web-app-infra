@@ -2,5 +2,3 @@ resources:
 - ../../base
 patchesStrategicMerge:
 - ingress.yaml
-- frontend.yaml
-- bff.yaml
