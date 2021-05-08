@@ -2,7 +2,9 @@
 
 #
 # Setup
-#   $ bash setup.sh # # Cleanup
+#   $ bash setup.sh
+#
+# Cleanup
 #   $ bash setup.sh --cleanup
 #
 
