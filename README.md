@@ -15,7 +15,7 @@ bash cluster/local/setup.sh
 
 After creating, you can access to http://localhost:8080/
 
-#### Admin tools
+### Admin tools
 
 ```
 bash cluster/local/port-forward.sh
