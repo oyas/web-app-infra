@@ -3,6 +3,8 @@ web-app-infra
 
 Kubernetes manifests of [web-app](https://github.com/oyas/web-app).
 
+![argocd-applications](./doc/argocd-applications.png)
+
 ## Setup
 
 ### Create local cluster
