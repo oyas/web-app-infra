@@ -20,3 +20,10 @@ spec:
         image: oyas/web-app-articles
         ports:
         - containerPort: 50052
+        env:
+        - name: APP_REDIS_URL
+          value: "redis-articles:6379"
+        - name: JAEGER_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP

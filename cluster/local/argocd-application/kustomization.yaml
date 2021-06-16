@@ -8,3 +8,4 @@ resources:
 - loki.yaml
 - promtail.yaml
 - nginx-internal.yaml
+- jaeger.yaml

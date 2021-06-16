@@ -26,4 +26,5 @@ bash cluster/local/port-forward.sh
 - [Grafana](http://localhost:20002/) ( username: `admin` / password: `admin` )
 - [Alertmanager](http://localhost:20003/)
 - [Prometheus](http://localhost:20004/)
+- [Jaeger](http://localhost:20005/)
 

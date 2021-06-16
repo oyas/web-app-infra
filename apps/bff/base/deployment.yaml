@@ -24,3 +24,7 @@ spec:
         env:
         - name: API_URL_ARTICLES
           value: "localhost:50000"
+        - name: JAEGER_AGENT_HOST
+          valueFrom:
+            fieldRef:
+              fieldPath: status.hostIP

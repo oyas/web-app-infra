@@ -32,6 +32,10 @@ data:
         listen     20004;
         proxy_pass prometheus-server.prometheus:80;
       }
+      # server {
+      #   listen     20005;
+      #   proxy_pass jaeger-query.jaeger:80;
+      # }
     }
 
 ---
@@ -63,6 +67,8 @@ spec:
           containerPort: 20003
         - name: prometheus
           containerPort: 20004
+        # - name: jaeger
+        #   containerPort: 20005
         volumeMounts:
         - name: nginx-conf
           mountPath: /etc/nginx/nginx.conf
