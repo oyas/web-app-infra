@@ -23,7 +23,7 @@ spec:
         env:
         - name: APP_REDIS_URL
           value: "redis-articles:6379"
-        - name: JAEGER_AGENT_HOST
+        - name: APP_JAEGER_URL
           valueFrom:
             fieldRef:
               fieldPath: status.hostIP
