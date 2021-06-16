@@ -28,4 +28,4 @@ spec:
             fieldRef:
               fieldPath: status.hostIP
         - name: APP_JAEGER_URL
-          value: "http://$(HOST_IP):14268"
+          value: "http://jaeger-collector.jaeger:14268"
