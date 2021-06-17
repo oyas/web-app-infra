@@ -16,6 +16,9 @@ spec:
     targetRevision: main
     helm:
       version: v3
+      values: |
+        agent:
+          enabled: false
   syncPolicy:
     automated:
       prune: true
