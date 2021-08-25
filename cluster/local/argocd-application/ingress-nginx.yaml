@@ -11,11 +11,9 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    repoURL: https://github.com/kubernetes/ingress-nginx
-    path: charts/ingress-nginx
-    targetRevision: main
-    helm:
-      version: v3
+    path: cluster/local/ingress-nginx
+    repoURL: https://github.com/oyas/web-app-infra
+    targetRevision: HEAD
   syncPolicy:
     automated:
       prune: true
