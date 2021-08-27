@@ -1,4 +1,4 @@
 bases:
-- github.com/kubernetes/ingress-nginx/deploy/static/provider/kind?ref=master
+- github.com/kubernetes/ingress-nginx/deploy/static/provider/kind?ref=main
 patchesStrategicMerge:
 - deploy.yaml
