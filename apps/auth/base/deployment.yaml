@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: application
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: auth
+  template:
+    metadata:
+      labels:
+        app: auth
+      annotations:
+        'consul.hashicorp.com/connect-inject': 'true'
+        'consul.hashicorp.com/connect-service': 'auth'
+    spec:
+      containers:
+      - name: auth
+        image: oyas/web-app-auth
+        ports:
+        - containerPort: 50052
+        env:
+        - name: APP_REDIS_URL
+          value: "redis-auth:6379"
+        - name: APP_JAEGER_URL
+          value: "http://jaeger-collector.jaeger:14268"
+        - name: SIGNING_KEY_PATH
+          value: "/app/keys/app.rsa"
+        volumeMounts:
+        - name: rsa-key
+          mountPath: "/app/keys"
+          readOnly: true
+      volumes:
+      - name: rsa-key
+        secret:
+          secretName: secret-rsa-key
