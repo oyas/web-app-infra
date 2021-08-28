@@ -1,3 +1,8 @@
 resources:
 - ../../base
 - secret.yaml
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+images:
+- name: oyas/web-app-auth
+  newTag: 3205f293eb5ad712c3ee91c88b5cebaa417d2e2d
