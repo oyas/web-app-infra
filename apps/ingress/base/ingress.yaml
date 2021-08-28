@@ -11,10 +11,12 @@ spec:
         backend:
           service:
             name: nginx-service
-            port.name: bff
+            port:
+              name: bff
       - path: /
         pathType: Prefix
         backend:
           service:
             name: nginx-service
-            port.name: frontend
+            port:
+              name: frontend
