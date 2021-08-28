@@ -14,7 +14,7 @@ spec:
       annotations:
         'consul.hashicorp.com/connect-inject': 'true'
         'consul.hashicorp.com/connect-service': 'bff'
-        'consul.hashicorp.com/connect-service-upstreams': 'articles:50000'
+        'consul.hashicorp.com/connect-service-upstreams': 'articles:50000,auth:50054'
     spec:
       containers:
       - name: application
@@ -24,5 +24,7 @@ spec:
         env:
         - name: API_URL_ARTICLES
           value: "localhost:50000"
+        - name: API_URL_AUTH
+          value: "localhost:50054"
         - name: APP_JAEGER_URL
           value: "http://jaeger-collector.jaeger:14268"
