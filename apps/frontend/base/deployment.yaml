@@ -21,6 +21,3 @@ spec:
         image: oyas/web-app-frontend
         ports:
         - containerPort: 8000
-        env:
-        - name: NEXT_PUBLIC_URL_BFF
-          value: ""
