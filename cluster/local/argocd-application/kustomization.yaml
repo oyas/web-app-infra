@@ -9,3 +9,4 @@ resources:
 - promtail.yaml
 - nginx-internal.yaml
 - jaeger.yaml
+- tempo.yaml
