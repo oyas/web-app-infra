@@ -10,4 +10,3 @@ resources:
 - nginx-internal.yaml
 - jaeger.yaml
 - tempo.yaml
-- tempo-distributed.yaml
