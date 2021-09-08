@@ -17,7 +17,12 @@ spec:
     helm:
       version: v3
       values: |
-        adminPassword: admin
+        # adminPassword: admin
+        grafana.ini:
+          auth.anonymous:
+            enabled: true
+            org_name: Main Org.
+            org_role: Admin
         datasources:
           datasources.yaml:
             apiVersion: 1
