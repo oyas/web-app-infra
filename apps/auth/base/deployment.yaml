@@ -24,7 +24,7 @@ spec:
         - name: APP_REDIS_URL
           value: "redis-auth:6379"
         - name: APP_JAEGER_URL
-          value: "http://otel-collector:14268"
+          value: "http://localhost:14268"
         - name: SIGNING_KEY_PATH
           value: "/app/keys/app.rsa"
         volumeMounts:
