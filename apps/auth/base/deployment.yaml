@@ -24,14 +24,30 @@ spec:
         - name: APP_REDIS_URL
           value: "redis-auth:6379"
         - name: APP_JAEGER_URL
-          value: "http://jaeger-collector.jaeger:14268"
+          value: "http://otel-collector:14268"
         - name: SIGNING_KEY_PATH
           value: "/app/keys/app.rsa"
         volumeMounts:
         - name: rsa-key
           mountPath: "/app/keys"
           readOnly: true
+      - name: otel-collector
+        image: otel/opentelemetry-collector-contrib
+        command: ["--config=/etc/otel-collector-config.yaml"]
+        ports:
+        - containerPort: 14268
+        volumeMounts:
+        - name: otel-collector-config
+          mountPath: "/etc/otel-collector-config.yaml"
+          readOnly: true
+          subPath: otel-collector-config.yaml
       volumes:
       - name: rsa-key
         secret:
           secretName: secret-rsa-key
+      - name: otel-collector-config
+        configMap:
+          name: otel-collector-config
+          items:
+            - key: otel-collector-config.yaml
+              path: otel-collector-config.yaml
