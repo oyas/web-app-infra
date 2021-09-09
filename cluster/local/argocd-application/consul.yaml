@@ -11,9 +11,9 @@ spec:
     namespace: consul
   project: default
   source:
-    repoURL: https://github.com/hashicorp/consul-k8s
-    path: charts/consul
-    targetRevision: main
+    repoURL: https://github.com/hashicorp/consul-helm
+    path: .
+    targetRevision: v0.29.0
     helm:
       version: v3
       values: |
