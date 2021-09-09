@@ -14,7 +14,10 @@ data:
     exporters:
       logging:
       jaeger:
-        endpoint: "tempo.tempo:14250"
+        endpoint: "jaeger-collector.jaeger:14250"
+        insecure: true
+      otlp/tempo:
+        endpoint: "tempo.tempo:4317"
         insecure: true
     processors:
       batch:
@@ -24,4 +27,4 @@ data:
         traces:
           receivers: [otlp, jaeger]
           processors: [batch]
-          exporters: [logging, jaeger]
+          exporters: [logging, jaeger, otlp/tempo]
