@@ -3,4 +3,4 @@ resources:
 - service.yaml
 - deployment-redis.yaml
 - service-redis.yaml
-- otel-collector-config.yaml
+- ../../common/otel-collector-config
