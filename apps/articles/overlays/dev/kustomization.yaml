@@ -2,6 +2,6 @@ resources:
 - ../../base
 images:
 - name: oyas/web-app-articles
-  newTag: 7f51600c32b9ea7cbd7596ea1975e1fca8f84570
+  newTag: 26cec5a25cecc8f61ee2dce46e781b3963290f7f
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
