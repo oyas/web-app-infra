@@ -16,11 +16,12 @@ spec:
     targetRevision: main
     helm:
       version: v3
-      tempo:
-        receivers:
-          otlp:
-            protocols:
-              grpc:
+      values: |
+        tempo:
+          receivers:
+            otlp:
+              protocols:
+                grpc:
   syncPolicy:
     automated:
       prune: true
