@@ -2,6 +2,6 @@ resources:
 - ../../base
 images:
 - name: oyas/web-app-bff
-  newTag: 26cec5a25cecc8f61ee2dce46e781b3963290f7f
+  newTag: 14f17de7a5c22fd07f51378e5767aac8e138402d
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
