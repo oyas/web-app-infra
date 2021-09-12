@@ -10,6 +10,12 @@ spec:
     server: https://kubernetes.default.svc
     namespace: grafana
   project: default
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: false
+    syncOptions:
+    - CreateNamespace=true
   source:
     repoURL: https://github.com/grafana/helm-charts
     path: charts/grafana
@@ -34,12 +40,17 @@ spec:
             - name: Loki
               type: loki
               url: http://loki.loki:3100
+              jsonData:
+                derivedFields:
+                - datasourceUid: tempo
+                  matcherRegex: (?:traceID|trace_id)=(\w+)
+                  name: TraceID
+                  url: $${__value.raw}
+                - datasourceUid: tempo
+                  matcherRegex: \"?traceparent\"?\s*[:=]\s*\"?[0-9a-f]{2}-([0-9a-f]{32})-[0-9a-f]{16}-[0-9a-f]{2}\"?
+                  name: trace_id_from_traceparent
+                  url: $${__value.raw}
             - name: Tempo
               type: tempo
               url: http://tempo.tempo:3100
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: false
-    syncOptions:
-    - CreateNamespace=true
+              uid: tempo
