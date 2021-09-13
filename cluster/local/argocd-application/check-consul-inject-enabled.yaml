@@ -18,4 +18,4 @@ spec:
       containers:
       - name: check-consul-inject-enabled
         image: busybox
-        command: [ "sh", "-c", "while wget --spider --timeout 60 -t 1 localhost:8500 ; do sleep 60 ; done" ]
+        command: [ "sh", "-c", "sleep 60; while wget --spider --timeout 60 -t 1 localhost:8500 ; do sleep 60 ; done" ]
