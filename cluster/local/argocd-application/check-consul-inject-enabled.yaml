@@ -18,4 +18,8 @@ spec:
       containers:
       - name: check-consul-inject-enabled
         image: busybox
-        command: [ "sh", "-c", "sleep 60; while wget --spider --timeout 60 -t 1 localhost:8500 ; do sleep 60 ; done" ]
+        command: ['sh', '-c', 'echo Consul is running! && while :; do sleep 3600; done']
+      initContainers:
+      - name: waiting-consul
+        image: busybox
+        command: [ "sh", "-c", "until wget --spider --timeout 60 -t 1 consul-server.consul:8500 ; do echo waiting for consul; sleep 2 ; done" ]
