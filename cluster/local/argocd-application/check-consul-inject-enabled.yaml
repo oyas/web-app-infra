@@ -13,9 +13,9 @@ spec:
         app: check-consul-inject-enabled
       annotations:
         consul.hashicorp.com/connect-inject: 'true'
-        consul.hashicorp.com/connect-service-upstreams: 'frontend:8080'
+        consul.hashicorp.com/connect-service-upstreams: 'consul:8500'
     spec:
       containers:
       - name: check-consul-inject-enabled
         image: busybox
-        command: [ "sh", "-c", "while wget --spider --timeout 60 -t 1 localhost:8080 ; do sleep 60 ; done" ]
+        command: [ "sh", "-c", "while wget --spider --timeout 60 -t 1 localhost:8500 ; do sleep 60 ; done" ]
