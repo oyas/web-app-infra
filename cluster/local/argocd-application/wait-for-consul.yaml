@@ -1,25 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: check-consul-inject-enabled
+  name: wait-for-consul
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: check-consul-inject-enabled
+      app: wait-for-consul
   template:
     metadata:
       labels:
-        app: check-consul-inject-enabled
-      annotations:
-        consul.hashicorp.com/connect-inject: 'true'
-        consul.hashicorp.com/connect-service-upstreams: 'consul:8500'
+        app: wait-for-consul
     spec:
       containers:
-      - name: check-consul-inject-enabled
+      - name: wait-for-consul-finish
         image: busybox
         command: ['sh', '-c', 'echo Consul is running! && while :; do sleep 3600; done']
       initContainers:
-      - name: waiting-consul
+      - name: wait-for-consul
         image: busybox
         command: [ "sh", "-c", "until wget --spider --timeout 60 -t 1 consul-server.consul:8500 ; do echo waiting for consul; sleep 2 ; done" ]
