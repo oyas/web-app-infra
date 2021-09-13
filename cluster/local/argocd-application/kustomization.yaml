@@ -10,3 +10,4 @@ resources:
 - nginx-internal.yaml
 - jaeger.yaml
 - tempo.yaml
+- check-consul-inject-enabled.yaml

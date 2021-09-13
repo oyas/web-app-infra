@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: check-consul-inject-enabled
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: check-consul-inject-enabled
+  template:
+    metadata:
+      labels:
+        app: check-consul-inject-enabled
+      annotations:
+        consul.hashicorp.com/connect-inject: 'true'
+        consul.hashicorp.com/connect-service-upstreams: 'frontend:8080'
+    spec:
+      containers:
+      - name: nginx
+        image: busybox
+        args: [ "while", "wget", "--spider", "--timeout", "60", "-t", "1", "localhost:8080", ";", "do", "sleep", "60", ";", "done" ]
