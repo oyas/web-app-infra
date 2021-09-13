@@ -16,6 +16,6 @@ spec:
         consul.hashicorp.com/connect-service-upstreams: 'frontend:8080'
     spec:
       containers:
-      - name: nginx
+      - name: check-consul-inject-enabled
         image: busybox
-        args: [ "-c", "while wget --spider --timeout 60 -t 1 localhost:8080 ; do sleep 60 ; done" ]
+        command: [ "sh", "-c", "while wget --spider --timeout 60 -t 1 localhost:8080 ; do sleep 60 ; done" ]
