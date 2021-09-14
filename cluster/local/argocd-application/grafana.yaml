@@ -54,3 +54,79 @@ spec:
                   matcherRegex: \"?traceparent\"?\s*[:=]\s*\"?[0-9a-f]{2}-([0-9a-f]{32})-[0-9a-f]{16}-[0-9a-f]{2}\"?
                   name: trace_id_from_traceparent
                   url: $${__value.raw}
+        dashboards:
+          default:
+            Logs:
+              json: |
+                {
+                  "schemaVersion": 30,
+                  "title": "Logs-imported",
+                  "uid": "Logs-imported",
+                  "editable": true,
+                  "panels": [
+                    {
+                      "datasource": "Loki",
+                      "gridPos": {
+                        "h": 15,
+                        "w": 24,
+                        "x": 0,
+                        "y": 0
+                      },
+                      "id": 0,
+                      "options": {
+                        "dedupStrategy": "none",
+                        "enableLogDetails": true,
+                        "prettifyLogMessage": true,
+                        "showCommonLabels": false,
+                        "showLabels": false,
+                        "showTime": true,
+                        "sortOrder": "Ascending",
+                        "wrapLogMessage": true
+                      },
+                      "targets": [
+                        {
+                          "expr": "{pod=\"jaeger-collector-7cb855bbdf-sflpm\"}\n| pattern \"<original_log>\"\n| json\n| __error__ != \"JSONParserErr\"\n| line_format `[{{ .caller }}] {{ .msg }} {{- with .error }} ; {{ . }} {{- end }}\n{{ .stacktrace }}`",
+                          "refId": "A"
+                        },
+                        {
+                          "expr": "{pod=\"jaeger-collector-7cb855bbdf-sflpm\"}\n| pattern \"<original_log>\"\n| json\n| __error__ = \"JSONParserErr\"",
+                          "refId": "B"
+                        }
+                      ],
+                      "title": "jaeger-collector",
+                      "type": "logs"
+                    },
+                    {
+                      "datasource": "Loki",
+                      "gridPos": {
+                        "h": 15,
+                        "w": 24,
+                        "x": 0,
+                        "y": 15
+                      },
+                      "id": 2,
+                      "options": {
+                        "dedupStrategy": "none",
+                        "enableLogDetails": true,
+                        "prettifyLogMessage": true,
+                        "showCommonLabels": false,
+                        "showLabels": false,
+                        "showTime": true,
+                        "sortOrder": "Ascending",
+                        "wrapLogMessage": true
+                      },
+                      "targets": [
+                        {
+                          "expr": "{container=\"auth\",namespace=\"app-dev-auth\"}\n| pattern \"<original_log>\"\n| json\n| __error__ != \"JSONParserErr\"\n| line_format `[{{ .caller }}] {{ .msg }} {{- with .error }} ; {{ . }} {{- end }} {{- with .stacktrace }}\n{{ . }} {{- end }}`",
+                          "refId": "A"
+                        },
+                        {
+                          "expr": "{container=\"auth\",namespace=\"app-dev-auth\"}\n| pattern \"<original_log>\"\n| json\n| __error__ = \"JSONParserErr\"",
+                          "refId": "B"
+                        }
+                      ],
+                      "title": "Auth",
+                      "type": "logs"
+                    }
+                  ]
+                }
