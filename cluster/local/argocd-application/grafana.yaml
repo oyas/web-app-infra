@@ -62,8 +62,8 @@ spec:
               orgId: 1
               folder: ''
               type: file
-              disableDeletion: false
-              editable: true
+              disableDeletion: true
+              editable: false
               options:
                 path: /var/lib/grafana/dashboards/default
         dashboards:
@@ -72,19 +72,31 @@ spec:
               json: |
                 {
                   "schemaVersion": 30,
-                  "title": "Logs-imported",
-                  "uid": "Logs-imported",
+                  "title": "Logs",
+                  "uid": "Logs",
                   "editable": true,
                   "panels": [
                     {
                       "datasource": "Loki",
                       "gridPos": {
                         "h": 15,
-                        "w": 24,
+                        "w": 23,
                         "x": 0,
                         "y": 0
                       },
                       "id": 0,
+                      "links": [
+                        {
+                          "targetBlank": true,
+                          "title": "Argo CD",
+                          "url": "https://localhost:20000/applications/app-dev-articles"
+                        },
+                        {
+                          "targetBlank": true,
+                          "title": "Consul",
+                          "url": "http://localhost:20001/ui/dev/services/articles"
+                        }
+                      ],
                       "options": {
                         "dedupStrategy": "none",
                         "enableLogDetails": true,
@@ -97,26 +109,38 @@ spec:
                       },
                       "targets": [
                         {
-                          "expr": "{pod=\"jaeger-collector-7cb855bbdf-sflpm\"}\n| pattern \"<original_log>\"\n| json\n| __error__ != \"JSONParserErr\"\n| line_format `[{{ .caller }}] {{ .msg }} {{- with .error }} ; {{ . }} {{- end }}\n{{ .stacktrace }}`",
+                          "expr": "{container=\"articles\",namespace=\"app-dev-articles\"}\n| pattern \"<original_log>\"\n| json\n| __error__ != \"JSONParserErr\"\n| line_format `[{{ .caller }}] {{ .msg }} {{- with .error }} ; {{ . }} {{- end }} {{- with .stacktrace }}\n{{ .stacktrace }} {{- end }}`",
                           "refId": "A"
                         },
                         {
-                          "expr": "{pod=\"jaeger-collector-7cb855bbdf-sflpm\"}\n| pattern \"<original_log>\"\n| json\n| __error__ = \"JSONParserErr\"",
+                          "expr": "{container=\"articles\",namespace=\"app-dev-articles\"}\n| pattern \"<original_log>\"\n| json\n| __error__ = \"JSONParserErr\"",
                           "refId": "B"
                         }
                       ],
-                      "title": "jaeger-collector",
+                      "title": "articles",
                       "type": "logs"
                     },
                     {
                       "datasource": "Loki",
                       "gridPos": {
                         "h": 15,
-                        "w": 24,
+                        "w": 23,
                         "x": 0,
                         "y": 15
                       },
-                      "id": 2,
+                      "id": 1,
+                      "links": [
+                        {
+                          "targetBlank": true,
+                          "title": "Argo CD",
+                          "url": "https://localhost:20000/applications/app-dev-auth"
+                        },
+                        {
+                          "targetBlank": true,
+                          "title": "Consul",
+                          "url": "http://localhost:20001/ui/dev/services/auth"
+                        }
+                      ],
                       "options": {
                         "dedupStrategy": "none",
                         "enableLogDetails": true,
@@ -137,7 +161,95 @@ spec:
                           "refId": "B"
                         }
                       ],
-                      "title": "Auth",
+                      "title": "auth",
+                      "type": "logs"
+                    },
+                    {
+                      "datasource": "Loki",
+                      "gridPos": {
+                        "h": 15,
+                        "w": 23,
+                        "x": 0,
+                        "y": 30
+                      },
+                      "id": 2,
+                      "links": [
+                        {
+                          "targetBlank": true,
+                          "title": "Argo CD",
+                          "url": "https://localhost:20000/applications/app-dev-bff"
+                        },
+                        {
+                          "targetBlank": true,
+                          "title": "Consul",
+                          "url": "http://localhost:20001/ui/dev/services/bff"
+                        }
+                      ],
+                      "options": {
+                        "dedupStrategy": "none",
+                        "enableLogDetails": true,
+                        "prettifyLogMessage": true,
+                        "showCommonLabels": false,
+                        "showLabels": false,
+                        "showTime": true,
+                        "sortOrder": "Ascending",
+                        "wrapLogMessage": true
+                      },
+                      "targets": [
+                        {
+                          "expr": "{container=\"application\",namespace=\"app-dev-bff\"}\n| pattern \"<original_log>\"\n| json\n| __error__ != \"JSONParserErr\"\n| line_format `[{{ .caller }}] {{ .msg }} {{- with .error }} ; {{ . }} {{- end }} {{- with .stacktrace }}\n{{ . }} {{- end }}`",
+                          "refId": "A"
+                        },
+                        {
+                          "expr": "{container=\"application\",namespace=\"app-dev-bff\"}\n| pattern \"<original_log>\"\n| json\n| __error__ = \"JSONParserErr\"",
+                          "refId": "B"
+                        }
+                      ],
+                      "title": "bff",
+                      "type": "logs"
+                    },
+                    {
+                      "datasource": "Loki",
+                      "gridPos": {
+                        "h": 15,
+                        "w": 23,
+                        "x": 0,
+                        "y": 45
+                      },
+                      "id": 3,
+                      "links": [
+                        {
+                          "targetBlank": true,
+                          "title": "Argo CD",
+                          "url": "https://localhost:20000/applications/app-dev-frontend"
+                        },
+                        {
+                          "targetBlank": true,
+                          "title": "Consul",
+                          "url": "http://localhost:20001/ui/dev/services/frontend"
+                        }
+                      ],
+                      "options": {
+                        "dedupStrategy": "none",
+                        "enableLogDetails": true,
+                        "prettifyLogMessage": true,
+                        "showCommonLabels": false,
+                        "showLabels": false,
+                        "showTime": true,
+                        "sortOrder": "Ascending",
+                        "wrapLogMessage": true
+                      },
+                      "targets": [
+                        {
+                          "expr": "{container=\"application\",namespace=\"app-dev-frontend\"}\n| pattern \"<original_log>\"\n| json\n| __error__ != \"JSONParserErr\"\n| line_format `[{{ .caller }}] {{ .msg }} {{- with .error }} ; {{ . }} {{- end }} {{- with .stacktrace }}\n{{ . }} {{- end }}`",
+                          "refId": "A"
+                        },
+                        {
+                          "expr": "{container=\"application\",namespace=\"app-dev-frontend\"}\n| pattern \"<original_log>\"\n| json\n| __error__ = \"JSONParserErr\"",
+                          "refId": "B"
+                        }
+                      ],
+                      "title": "frontend",
                       "type": "logs"
                     }
                   ]
