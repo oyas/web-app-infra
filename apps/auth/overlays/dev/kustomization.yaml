@@ -5,4 +5,4 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 images:
 - name: oyas/web-app-auth
-  newTag: a82c59b03b83221f93f014d00cd91c9306ac22c4
+  newTag: bbf57eb31f5074d57f4acbd845890fbd164000e3
