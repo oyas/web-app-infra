@@ -1,33 +1,36 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: application
+  name: auth-jwks
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: articles
+      app: auth-jwks
   template:
     metadata:
       labels:
-        app: articles
+        app: auth-jwks
       annotations:
         'consul.hashicorp.com/connect-inject': 'true'
-        'consul.hashicorp.com/connect-service': 'articles'
-        'consul.hashicorp.com/connect-service-upstreams': 'auth-jwks:3000'
+        'consul.hashicorp.com/connect-service': 'auth-jwks'
     spec:
       containers:
-      - name: articles
-        image: oyas/web-app-articles
+      - name: auth-jwks
+        image: oyas/web-app-auth
         ports:
-        - containerPort: 50052
+        - containerPort: 3000
         env:
         - name: APP_REDIS_URL
-          value: "redis-articles:6379"
+          value: "redis-auth:6379"
         - name: APP_JAEGER_URL
           value: "http://localhost:14268"
-        - name: API_URL_JWKS
-          value: "localhost:3000"
+        - name: SIGNING_KEY_PATH
+          value: "/app/keys/app.rsa"
+        volumeMounts:
+        - name: rsa-key
+          mountPath: "/app/keys"
+          readOnly: true
       - name: otel-collector
         image: otel/opentelemetry-collector-contrib
         args: ["--config=/etc/otel-collector-config.yaml"]
@@ -39,6 +42,9 @@ spec:
           readOnly: true
           subPath: otel-collector-config.yaml
       volumes:
+      - name: rsa-key
+        secret:
+          secretName: secret-rsa-key
       - name: otel-collector-config
         configMap:
           name: otel-collector-config
