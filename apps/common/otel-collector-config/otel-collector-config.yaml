@@ -15,10 +15,8 @@ data:
       logging:
       jaeger:
         endpoint: "jaeger-collector.jaeger:14250"
-        insecure: true
       otlp/tempo:
         endpoint: "tempo.tempo:4317"
-        insecure: true
     processors:
       batch:
     service:
