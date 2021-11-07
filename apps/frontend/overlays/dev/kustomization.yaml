@@ -2,6 +2,6 @@ resources:
 - ../../base
 images:
 - name: oyas/web-app-frontend
-  newTag: 821feba1033410d3619e9b0ef5c178279bc793bf
+  newTag: 26105ca7cc9685e41828f41f96583171450588ab
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
