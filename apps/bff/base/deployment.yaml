@@ -20,7 +20,8 @@ spec:
       - name: application
         image: oyas/web-app-bff
         ports:
-        - containerPort: 4000
+        - name: app
+          containerPort: 4000
         env:
         - name: API_URL_ARTICLES
           value: "localhost:50000"
@@ -28,6 +29,21 @@ spec:
           value: "localhost:50054"
         - name: APP_JAEGER_URL
           value: "http://localhost:14268"
+        readinessProbe:
+          tcpSocket:
+            port: app
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          tcpSocket:
+            port: app
+          failureThreshold: 2
+          periodSeconds: 20
+        startupProbe:
+          tcpSocket:
+            port: app
+          failureThreshold: 30
+          periodSeconds: 10
       - name: otel-collector
         image: otel/opentelemetry-collector-contrib
         args: ["--config=/etc/otel-collector-config.yaml"]
